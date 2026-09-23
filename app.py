@@ -30,255 +30,264 @@ st.set_page_config(
 # --- OPERATIONS CONSOLE THEME ---
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
     :root {
-        --ink: #102a43;
-        --muted: #627d98;
-        --canvas: #f5f8fb;
+        --bg: #f4f7fb;
         --surface: #ffffff;
-        --line: #d9e2ec;
-        --teal: #087f8c;
-        --teal-dark: #05606b;
-        --amber: #c56a16;
-        --amber-soft: #fff4e6;
+        --surface-strong: #eef5ff;
+        --line: #dfe8f3;
+        --text: #14233b;
+        --text-muted: #5f6f89;
+        --primary: #0f6fff;
+        --primary-deep: #0a4fc7;
+        --secondary: #14b8a6;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --success: #10b981;
+        --sidebar: #0b1220;
+        --sidebar-soft: rgba(255,255,255,0.08);
+        --shadow: 0 14px 34px rgba(9, 25, 48, 0.08);
     }
 
     header[data-testid="stHeader"] {
-        background: rgba(245, 248, 251, 0.92) !important;
+        background: rgba(244, 247, 251, 0.8) !important;
         backdrop-filter: blur(12px);
     }
 
     .main .block-container {
         max-width: 1500px;
-        padding: 2.25rem 3.25rem 3rem !important;
+        padding: 2rem 2.25rem 3rem !important;
     }
 
     .stApp {
-        background: radial-gradient(circle at 85% 0%, #e4f5f4 0, transparent 28rem), var(--canvas) !important;
-        color: var(--ink) !important;
-        font-family: 'DM Sans', 'Trebuchet MS', sans-serif;
-    }
-
-    .main h1 {
-        max-width: 920px;
-        margin-bottom: 0.35rem !important;
-        color: var(--ink) !important;
-        text-wrap: balance;
-    }
-    .main h1::after {
-        content: '';
-        display: block;
-        width: 68px;
-        height: 5px;
-        margin-top: 14px;
-        border-radius: 99px;
-        background: var(--amber);
+        background: linear-gradient(180deg, #f8fbff 0%, #eff5fb 100%) !important;
+        color: var(--text) !important;
+        font-family: 'Inter', sans-serif;
     }
 
     [data-testid="stSidebar"] {
-        background: #102a43 !important;
-        border-right: 0 !important;
-        box-shadow: 10px 0 32px rgba(16, 42, 67, 0.08);
+        background: linear-gradient(180deg, #0b1220 0%, #111b2c 100%) !important;
+        border-right: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 14px 0 28px rgba(7, 15, 27, 0.12);
     }
+
     [data-testid="stSidebar"] * {
-        color: #e6f1f5 !important;
+        color: #eaf2ff !important;
     }
-    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
-        color: #8fe3dc !important;
+
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] h4 {
+        color: #b7d7ff !important;
     }
-    [data-testid="stSidebar"] hr { border-color: rgba(230, 241, 245, 0.16) !important; }
+
+    [data-testid="stSidebar"] hr {
+        border-color: rgba(255,255,255,0.12) !important;
+    }
 
     h1, h2, h3, h4, h5, h6 {
-        color: var(--ink) !important;
-        font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
-        letter-spacing: 0 !important;
-        font-weight: 700 !important;
+        color: var(--text) !important;
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: -0.035em !important;
+        font-weight: 800 !important;
     }
-    h1 { font-size: clamp(2rem, 3vw, 3.25rem) !important; line-height: 1.05 !important; }
-    h2, h3 { letter-spacing: -0.02em !important; }
+
+    h1 {
+        font-size: clamp(2.4rem, 3vw, 3.2rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 0.35rem !important;
+    }
+
+    h2, h3 { font-weight: 700 !important; }
 
     p, span, .stCaption, [data-testid="stCaptionContainer"] {
-        color: var(--muted) !important;
+        color: var(--text-muted) !important;
     }
+
     .stMarkdown p { line-height: 1.6; }
     hr { border-color: var(--line) !important; }
 
     label, label p, label span {
-        color: var(--ink) !important;
-        font-size: 0.86rem !important;
+        color: var(--text) !important;
+        font-size: 0.8rem !important;
         font-weight: 700 !important;
     }
 
-    div[data-baseweb="select"] > div, 
+    div[data-baseweb="select"] > div,
     div[data-baseweb="input"] > div,
     input {
         background: var(--surface) !important;
-        color: var(--ink) !important;
-        border: 1px solid #bcccdc !important;
-        border-radius: 8px !important;
+        color: var(--text) !important;
+        border: 1px solid #c7d4e6 !important;
+        border-radius: 10px !important;
         font-weight: 500 !important;
     }
-    div[data-baseweb="select"] *, 
+
+    div[data-baseweb="select"] *,
     div[data-baseweb="input"] * {
-        color: var(--ink) !important;
+        color: var(--text) !important;
     }
+
     ul[data-baseweb="menu"] {
         background: var(--surface) !important;
         border: 1px solid var(--line) !important;
-    }
-    ul[data-baseweb="menu"] li {
-        color: var(--ink) !important;
+        border-radius: 10px !important;
     }
 
-    div[data-testid="stForm"], .stBorderContainer, div[data-testid="stMetric"] {
-        border-radius: 14px !important;
-        border: 1px solid var(--line) !important;
-        background: rgba(255, 255, 255, 0.88) !important;
-        box-shadow: 0 8px 24px rgba(16, 42, 67, 0.05);
-        padding: 1.15rem !important;
+    ul[data-baseweb="menu"] li {
+        color: var(--text) !important;
     }
+
+    div[data-testid="stForm"],
+    .stBorderContainer,
     div[data-testid="stMetric"] {
-        border-top: 3px solid var(--teal) !important;
-        min-height: 112px;
+        border-radius: 18px !important;
+        border: 1px solid var(--line) !important;
+        background: rgba(255,255,255,0.9) !important;
+        box-shadow: var(--shadow);
+        padding: 1.1rem !important;
     }
+
+    div[data-testid="stMetric"] {
+        min-height: 120px;
+        border-top: 3px solid var(--primary) !important;
+    }
+
     div[data-testid="stMetric"]:nth-child(3n) {
-        border-top-color: var(--amber) !important;
+        border-top-color: var(--secondary) !important;
     }
 
     div[data-testid="stMetricValue"] {
-        color: var(--teal-dark) !important;
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.75rem !important;
+        color: var(--text) !important;
+        font-size: 1.8rem !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.04em !important;
+    }
+
+    div[data-testid="stMetricLabel"] {
+        color: var(--text-muted) !important;
+        font-size: 0.75rem !important;
         font-weight: 700 !important;
     }
-    div[data-testid="stMetricLabel"] {
-        color: var(--muted) !important;
-        font-size: 0.78rem !important;
+
+    div[data-testid="stMetricDelta"] {
+        font-size: 0.72rem !important;
         font-weight: 600 !important;
     }
-    div[data-testid="stMetricDelta"] { font-size: 0.75rem !important; }
 
     .stTabs [data-baseweb="tab-list"] {
-        gap: 6px;
+        gap: 8px;
         border-bottom: 1px solid var(--line);
     }
+
     .stTabs [data-baseweb="tab"] {
         height: 44px;
         background: transparent !important;
-        border-radius: 8px 8px 0 0 !important;
+        border-radius: 10px 10px 0 0 !important;
         border: 0 !important;
         padding: 0 14px !important;
     }
+
     .stTabs [data-baseweb="tab"] p {
-        color: var(--muted) !important;
-        font-weight: 600 !important;
-    }
-    .stTabs [aria-selected="true"] {
-        background: #d9f2ef !important;
-        box-shadow: inset 0 -3px 0 var(--teal);
-    }
-    .stTabs [aria-selected="true"] p {
-        color: var(--teal-dark) !important;
+        color: var(--text-muted) !important;
+        font-weight: 700 !important;
     }
 
-    div[data-testid="stDataFrame"], div[data-testid="stTable"] {
+    .stTabs [aria-selected="true"] {
+        background: #e7f0ff !important;
+        box-shadow: inset 0 -3px 0 var(--primary);
+    }
+
+    .stTabs [aria-selected="true"] p {
+        color: var(--primary-deep) !important;
+    }
+
+    div[data-testid="stDataFrame"],
+    div[data-testid="stTable"] {
         background: var(--surface) !important;
         border: 1px solid var(--line) !important;
-        border-radius: 12px !important;
-        box-shadow: 0 8px 24px rgba(16, 42, 67, 0.04);
+        border-radius: 14px !important;
+        box-shadow: 0 10px 22px rgba(20, 35, 59, 0.04);
     }
 
     code {
-        color: var(--teal-dark) !important;
-        background: #e8f5f3 !important;
-        border: 1px solid #b7e1dc !important;
+        color: var(--primary-deep) !important;
+        background: #edf5ff !important;
+        border: 1px solid #cfe1ff !important;
+        border-radius: 6px !important;
     }
 
-    /* Keep every button label readable, including Streamlit's nested text nodes. */
     .stButton > button,
     .stButton > button[kind="primary"],
     button[data-testid="baseButton-primary"],
     button[data-testid="baseButton-secondary"] {
         min-height: 42px;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: 700;
-        background: var(--teal) !important;
-        color: #FFFFFF !important;
-        border: 1px solid var(--teal) !important;
-        transition: transform 160ms ease, background 160ms ease;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+        box-shadow: 0 10px 18px rgba(15, 111, 255, 0.2);
     }
-    .stButton > button *,
-    button[data-testid="baseButton-primary"] *,
-    button[data-testid="baseButton-secondary"] * {
-        color: #FFFFFF !important;
-        fill: #FFFFFF !important;
+
+    .stButton > button * {
+        color: #ffffff !important;
+        fill: #ffffff !important;
     }
+
     .stButton > button:hover,
     button[data-testid="baseButton-primary"]:hover,
     button[data-testid="baseButton-secondary"]:hover {
-        background: var(--teal-dark) !important;
         transform: translateY(-1px);
+        box-shadow: 0 12px 20px rgba(15, 111, 255, 0.24);
     }
+
     [data-testid="stSidebar"] .stButton > button {
-        background: #8fe3dc !important;
-        color: #102a43 !important;
-        border-color: #8fe3dc !important;
-    }
-    [data-testid="stSidebar"] .stButton > button * {
-        color: #102a43 !important;
-        fill: #102a43 !important;
+        background: linear-gradient(135deg, #dfeeff 0%, #c8ebff 100%) !important;
+        color: var(--text) !important;
+        border: none !important;
     }
 
-    /* Incident actions use amber so urgent controls are easy to scan. */
     button[kind="primary"] {
-        background: var(--amber) !important;
-        border-color: var(--amber) !important;
-    }
-    button[kind="primary"]:hover {
-        background: #a9550f !important;
+        background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important;
+        box-shadow: 0 10px 18px rgba(245, 158, 11, 0.2);
     }
 
-    /* Brighter, thicker range controls for the diagnostic sliders. */
     [data-testid="stSlider"] [data-baseweb="slider"] {
-        padding: 0.65rem 0 0.85rem;
-    }
-    [data-testid="stSlider"] [role="slider"] {
-        width: 22px !important;
-        height: 22px !important;
-        background: #ffffff !important;
-        border: 4px solid var(--teal) !important;
-        box-shadow: 0 2px 8px rgba(8, 127, 140, 0.28) !important;
-    }
-    [data-testid="stSlider"] [role="slider"]:focus {
-        outline: 3px solid rgba(8, 127, 140, 0.24) !important;
-        outline-offset: 2px;
-    }
-    [data-testid="stSlider"] [data-baseweb="slider"] > div > div {
-        background: #cbd5e1 !important;
-        height: 7px !important;
-        border-radius: 99px !important;
-    }
-    [data-testid="stSlider"] [data-baseweb="slider"] > div > div > div {
-        background: var(--teal) !important;
-        height: 7px !important;
-        border-radius: 99px !important;
-    }
-    [data-testid="stSlider"] [data-testid="stTickBar"] {
-        background: transparent !important;
-    }
-    [data-testid="stSlider"] [data-testid="stTickBarMin"],
-    [data-testid="stSlider"] [data-testid="stTickBarMax"] {
-        color: var(--muted) !important;
-        font-weight: 600 !important;
-    }
-    [data-testid="stSlider"] [data-testid="stSliderValue"] {
-        color: var(--teal-dark) !important;
-        font-weight: 700 !important;
+        padding: 0.7rem 0 0.9rem;
     }
 
-    [data-testid="stAlert"] { border-radius: 10px !important; }
-    [data-testid="stExpander"] { border-color: var(--line) !important; border-radius: 10px !important; }
+    [data-testid="stSlider"] [role="slider"] {
+        width: 20px !important;
+        height: 20px !important;
+        background: #ffffff !important;
+        border: 3px solid var(--primary) !important;
+        box-shadow: 0 4px 12px rgba(15, 111, 255, 0.18) !important;
+    }
+
+    [data-testid="stSlider"] [data-baseweb="slider"] > div > div {
+        background: #dfeaf8 !important;
+        height: 7px !important;
+        border-radius: 99px !important;
+    }
+
+    [data-testid="stSlider"] [data-baseweb="slider"] > div > div > div {
+        background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+        height: 7px !important;
+        border-radius: 99px !important;
+    }
+
+    [data-testid="stAlert"] {
+        border-radius: 12px !important;
+    }
+
+    [data-testid="stExpander"] {
+        border-color: var(--line) !important;
+        border-radius: 12px !important;
+    }
 
     .success-animation {
         display: flex;
@@ -287,11 +296,12 @@ st.markdown("""
         padding: 0.9rem 1rem;
         margin: 0.6rem 0 1rem;
         border-radius: 14px;
-        border: 1px solid #bbf7d0;
-        background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
-        box-shadow: 0 12px 28px rgba(16, 185, 129, 0.12);
+        border: 1px solid #b7f0d4;
+        background: linear-gradient(135deg, #ecfdf5 0%, #f2fff9 100%);
+        box-shadow: 0 12px 24px rgba(16, 185, 129, 0.12);
         animation: successSlideIn 0.4s ease-out;
     }
+
     .success-badge {
         display: grid;
         place-items: center;
@@ -305,29 +315,33 @@ st.markdown("""
         box-shadow: 0 0 0 8px rgba(52, 211, 153, 0.14);
         animation: successPulse 0.8s ease-out;
     }
+
     .success-animation-title {
         color: #065f46 !important;
         font-size: 1rem !important;
         font-weight: 800 !important;
         margin: 0 !important;
     }
+
     .success-animation-subtitle {
         color: #047857 !important;
         font-size: 0.82rem !important;
         margin-top: 2px !important;
     }
+
     @keyframes successPulse {
         0% { transform: scale(0.6); opacity: 0; }
         65% { transform: scale(1.12); opacity: 1; }
         100% { transform: scale(1); }
     }
+
     @keyframes successSlideIn {
-        0% { opacity: 0; transform: translateY(10px); }
+        0% { opacity: 0; transform: translateY(8px); }
         100% { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 900px) {
-        .main .block-container { padding: 1.25rem 1rem 2rem !important; }
+        .main .block-container { padding: 1.2rem 1rem 2rem !important; }
         h1 { font-size: 2rem !important; }
     }
     </style>
@@ -351,6 +365,9 @@ def render_success_animation(title, subtitle="Request processed successfully"):
 # --- INITIALIZE SESSION STATE ---
 if "current_page" not in st.session_state:
     st.session_state.current_page = "main_dashboard"
+
+if "show_submit_success" not in st.session_state:
+    st.session_state.show_submit_success = False
 
 if "complaint_history" not in st.session_state:
     st.session_state.complaint_history = pd.DataFrame({
@@ -516,13 +533,17 @@ if st.session_state.current_page == "lodge_complaint_page":
                 )
 
                 prob = churn_engine.predict_churn_prob(1, input_outage, input_drop)
+                st.session_state.show_submit_success = True
+                st.session_state.submit_success_message = (
+                    f"Complaint {new_id} successfully registered! Subscriber {input_sub} churn risk recalculated at {round(prob * 100, 2)}%"
+                )
                 render_success_animation(
                     f"Complaint {new_id} successfully registered!",
                     f"Subscriber {input_sub} churn risk recalculated at {round(prob * 100, 2)}%"
                 )
                 st.info(f"📊 Recalculated Subscriber `{input_sub}` Churn Risk: **{round(prob * 100, 2)}%**")
                 
-                time.sleep(2)
+                time.sleep(1.6)
                 st.session_state.current_page = "main_dashboard"
                 st.rerun()
 
@@ -547,17 +568,24 @@ else:
         st.divider()
         st.caption("📍 JNTUK R23 - B.Tech AI & DS (2025 Batch)")
 
+    if st.session_state.get("show_submit_success", False):
+        render_success_animation(
+            "Submission complete",
+            st.session_state.get("submit_success_message", "Complaint processed successfully.")
+        )
+        st.session_state.show_submit_success = False
+
     # --- TOP HEADER BANNER ---
     st.markdown(
-        "<div style='display:flex;align-items:center;gap:10px;margin-bottom:14px;'>"
-        "<span style='display:inline-block;width:9px;height:9px;border-radius:50%;background:#10b981;box-shadow:0 0 0 5px #d9f2ef;'></span>"
-        "<span style='font-size:0.76rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#087f8c;'>NOC / LIVE CONTROL PLANE</span>"
-        "<span style='color:#9fb3c8;font-size:0.82rem;'>Updated just now</span>"
+        "<div style='display:flex;align-items:center;gap:10px;margin-bottom:18px;'>"
+        "<span style='display:inline-block;width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 0 6px rgba(16,185,129,0.12);'></span>"
+        "<span style='font-size:0.78rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#0f6fff;'>Operations Command Center</span>"
+        "<span style='color:#73839a;font-size:0.8rem;'>Updated just now</span>"
         "</div>",
         unsafe_allow_html=True
     )
-    st.title("📡 Enterprise Telecom Network & Fault Intelligence Hub")
-    st.caption("Graph Path Tracing & Machine Learning Churn Risk Management Platform")
+    st.title("Telecom Network Intelligence Platform")
+    st.caption("Enterprise monitoring, path tracing, and churn risk intelligence for modern telecom operations.")
     st.divider()
 
     # --- TOP NAVIGATION TABS ---
