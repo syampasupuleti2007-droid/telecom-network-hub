@@ -1,0 +1,6 @@
+subscriber_id,name,plan_type,tower_id,monthly_bill
+SUB001,Student_01,Premium_Unlimited,Tower_A,49
+SUB002,Student_02,Basic_Data,Tower_B,29
+SUB003,Student_03,Standard_Voice,Tower_C,39
+SUB004,Student_04,Premium_Unlimited,Tower_A,49
+SUB005,Student_05,Basic_Data,Tower_B,29

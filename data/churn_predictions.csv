@@ -1,0 +1,11 @@
+subscriber_id,predicted_churn_probability,segment
+S001,0.42,medium
+S002,0.18,low
+S003,0.81,high
+S004,0.09,low
+S005,0.76,high
+S006,0.88,high
+S007,0.22,low
+S008,0.92,high
+S009,0.35,medium
+S010,0.53,medium

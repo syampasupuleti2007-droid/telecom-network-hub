@@ -1,0 +1,15 @@
+{
+  "towers": [
+    {"id": "Tower_A", "location": "North_Sector", "status": "ACTIVE"},
+    {"id": "Tower_B", "location": "Central_Hub", "status": "ACTIVE"},
+    {"id": "Tower_C", "location": "South_Sector", "status": "ACTIVE"},
+    {"id": "Substation_1", "location": "Substation_North", "status": "FAULT_DISRUPT"},
+    {"id": "Central_Hub", "location": "Main_datacenter", "status": "ACTIVE"}
+  ],
+  "links": [
+    {"source": "Tower_A", "target": "Substation_1", "link_id": "L101", "status": "FAULT_DISRUPT"},
+    {"source": "Tower_B", "target": "Substation_1", "link_id": "L102", "status": "OK"},
+    {"source": "Tower_C", "target": "Tower_B", "link_id": "L103", "status": "OK"},
+    {"source": "Substation_1", "target": "Central_Hub", "link_id": "L104", "status": "DEGRADED"}
+  ]
+}

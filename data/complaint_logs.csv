@@ -1,0 +1,5 @@
+complaint_id,subscriber_id,tower_id,outage_hours,usage_drop_pct,complaint_date
+CMP01,SUB001,Tower_A,14.5,50.0,2026-03-01
+CMP02,SUB002,Tower_B,2.0,10.0,2026-03-02
+CMP03,SUB004,Tower_A,18.0,65.0,2026-03-02
+CMP04,SUB005,Tower_B,1.0,5.0,2026-03-03
